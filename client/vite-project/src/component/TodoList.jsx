@@ -20,6 +20,9 @@ function TodoList() {
   },[status])
   const handleSubmit=async(e)=>{
     e.preventDefault();
+    if(value.todo==""){
+      return
+    }
     if(updata!=-1){
       const update=await axios.put(`http://localhost:6007/apis/todolist/${listTodo[updata].id}`,value);
       setUpdate(-1)
